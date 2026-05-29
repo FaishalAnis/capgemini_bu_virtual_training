@@ -1,0 +1,308 @@
+/* =========================================
+   1. CSS Variables & Reset
+   ========================================= */
+:root {
+  --primary: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --switch-bg: #cbd5e1;
+  --popular-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+/* =========================================
+   2. Container & Typography Setup
+   ========================================= */
+.pricing-container {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.pricing-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* =========================================
+   3. The Custom Toggle Switch
+   ========================================= */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.toggle-label {
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.badge-save {
+  background: var(--primary);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Base Pill Shape */
+.toggle-switch {
+  position: relative;
+  width: 64px;
+  height: 34px;
+  background-color: var(--switch-bg);
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+/* Sliding Circle (Using Pseudo-element) */
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   4. MAGIC: The Checkbox Hack Logic
+   ========================================= */
+
+/* A. Change Toggle Switch appearance when checked */
+.billing-toggle:checked ~ .toggle-wrapper .toggle-switch {
+  background-color: var(--primary);
+}
+
+/* B. Slide the circle when checked */
+.billing-toggle:checked ~ .toggle-wrapper .toggle-switch::before {
+  transform: translateX(30px);
+}
+
+/* C. Highlight active label (Monthly vs Yearly) */
+.billing-toggle:not(:checked) ~ .toggle-wrapper .monthly-label { color: var(--text-main); }
+.billing-toggle:checked ~ .toggle-wrapper .yearly-label { color: var(--text-main); }
+
+/* D. The Price Swap Logic */
+/* By default, hide yearly prices */
+.yearly-price { 
+  display: none; 
+}
+
+/* When checked, hide monthly and show yearly */
+.billing-toggle:checked ~ .pricing-cards .monthly-price {
+  display: none;
+}
+.billing-toggle:checked ~ .pricing-cards .yearly-price {
+  display: block;
+  animation: fade-in 0.5s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   5. Pricing Cards Grid
+   ========================================= */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: center; /* Ensures cards center nicely, allowing the popular card to scale up */
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Highlighted "Popular" Card */
+.card.popular {
+  border: 2px solid var(--primary);
+  transform: scale(1.05); /* Make it slightly larger */
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+  z-index: 2; /* Keep it above the other cards */
+}
+
+.card.popular:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--popular-gradient);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   6. Card Content Typography
+   ========================================= */
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  min-height: 45px;
+}
+
+.price-wrapper {
+  margin-bottom: 2rem;
+  min-height: 60px; /* Prevents layout jump when swapping prices */
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.price span {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* =========================================
+   7. Features List
+   ========================================= */
+.features {
+  list-style: none;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.features li {
+  padding: 0.75rem 0;
+  color: var(--text-main);
+  font-weight: 500;
+  border-bottom: 1px solid var(--bg-color);
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+/* Custom Checkmark via Pseudo-element */
+.features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.features li.disabled {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.features li.disabled::before {
+  content: "✕";
+  color: #cbd5e1;
+}
+
+/* =========================================
+   8. Call to Action Buttons
+   ========================================= */
+.cta-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn.outline {
+  background: transparent;
+  border: 2px solid var(--border);
+  color: var(--text-main);
+}
+
+.cta-btn.outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.cta-btn.solid {
+  background: var(--primary);
+  border: 2px solid var(--primary);
+  color: white;
+}
+
+.cta-btn.solid:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+/* Responsive adjustment for tablet/mobile to disable the scale effect */
+@media (max-width: 900px) {
+  .card.popular {
+    transform: scale(1);
+  }
+  .card.popular:hover {
+    transform: translateY(-10px);
+  }
+}

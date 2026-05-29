@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure CSS Responsive Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle" hidden>
+
+  <div class="dashboard-layout">
+    
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>AdminPro</h2>
+        <label for="sidebar-toggle" class="close-sidebar">✖</label>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="#" class="active"><span class="icon">📊</span><span class="text">Dashboard</span></a>
+        <a href="#"><span class="icon">👥</span><span class="text">Users</span></a>
+        <a href="#"><span class="icon">🛍️</span><span class="text">Products</span></a>
+        <a href="#"><span class="icon">📈</span><span class="text">Analytics</span></a>
+        <a href="#"><span class="icon">⚙️</span><span class="text">Settings</span></a>
+      </nav>
+    </aside>
+
+    <label for="sidebar-toggle" class="sidebar-overlay"></label>
+
+    <div class="main-wrapper">
+      
+      <header class="top-header">
+        <div class="header-left">
+          <label for="sidebar-toggle" class="menu-toggle">☰</label>
+          <div class="search-bar">
+            <input type="search" placeholder="Search...">
+          </div>
+        </div>
+        
+        <div class="header-right">
+          <div class="notifications">
+            <span class="icon">🔔</span>
+            <span class="badge">3</span>
+          </div>
+          <div class="profile">
+            <img src="https://i.pravatar.cc/150?img=11" alt="Profile Picture" class="avatar">
+            <span class="profile-name">Jane Doe</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-area">
+        <div class="page-header">
+          <h1>Overview</h1>
+        </div>
+
+        <div class="grid-metrics">
+          <div class="card metric-card">
+            <h3>Total Revenue</h3>
+            <p class="value">$45,231</p>
+            <span class="trend positive">+12.5%</span>
+          </div>
+          <div class="card metric-card">
+            <h3>Active Users</h3>
+            <p class="value">2,405</p>
+            <span class="trend positive">+5.2%</span>
+          </div>
+          <div class="card metric-card">
+            <h3>New Orders</h3>
+            <p class="value">342</p>
+            <span class="trend negative">-2.4%</span>
+          </div>
+          <div class="card metric-card">
+            <h3>Bounce Rate</h3>
+            <p class="value">24.5%</p>
+            <span class="trend positive">-1.5%</span>
+          </div>
+        </div>
+
+        <div class="grid-widgets">
+          <div class="card chart-widget">
+            <h3>Revenue History</h3>
+            <div class="placeholder-chart">
+              <div class="bar" style="height: 40%;"></div>
+              <div class="bar" style="height: 60%;"></div>
+              <div class="bar" style="height: 30%;"></div>
+              <div class="bar" style="height: 80%;"></div>
+              <div class="bar" style="height: 50%;"></div>
+              <div class="bar" style="height: 90%;"></div>
+            </div>
+          </div>
+          
+          <div class="card list-widget">
+            <h3>Recent Transactions</h3>
+            <ul class="transaction-list">
+              <li><span>Apple MacBook Pro</span> <strong>$1,299</strong></li>
+              <li><span>Sony Wireless Headphones</span> <strong>$299</strong></li>
+              <li><span>Dell UltraSharp Monitor</span> <strong>$599</strong></li>
+              <li><span>Logitech MX Master 3</span> <strong>$99</strong></li>
+            </ul>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+</body>
+</html>

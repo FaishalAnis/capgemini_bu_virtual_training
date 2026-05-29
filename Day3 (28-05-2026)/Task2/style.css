@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #f0ede8;
+  --card: #ffffff;
+  --accent: #4f46e5;
+  --success: #22c55e;
+  --text: #1e1b4b;
+  --muted: #6b7280;
+  --border: #e0ddd8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg);
+  background-image: radial-gradient(circle, #c9c5be 1px, transparent 1px);
+  background-size: 24px 24px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--text);
+}
+
+/* Hide Radio Buttons */
+.step-radio {
+  display: none;
+}
+
+.page-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-card {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(79,70,229,0.08);
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.card-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* Step Indicators */
+.step-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.step-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  margin: 0 8px 24px;
+}
+
+/* Active Step Logic */
+#s1:checked ~ .page-wrapper .step-item:nth-child(1) .step-circle,
+#s2:checked ~ .page-wrapper .step-item:nth-child(3) .step-circle,
+#s3:checked ~ .page-wrapper .step-item:nth-child(5) .step-circle {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Completed Step Logic (Green) */
+#s2:checked ~ .page-wrapper .step-item:nth-child(1) .step-circle,
+#s3:checked ~ .page-wrapper .step-item:nth-child(1) .step-circle,
+#s3:checked ~ .page-wrapper .step-item:nth-child(3) .step-circle {
+  background: var(--success);
+  border-color: var(--success);
+  color: #fff;
+}
+
+/* Completed Connectors */
+#s2:checked ~ .page-wrapper .step-connector:nth-child(2),
+#s3:checked ~ .page-wrapper .step-connector:nth-child(2),
+#s3:checked ~ .page-wrapper .step-connector:nth-child(4) {
+  background: var(--success);
+}
+
+/* Progress Bar */
+.progress-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 4px;
+  margin-bottom: 32px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  width: 33%;
+}
+
+#s1:checked ~ .page-wrapper .progress-fill { width: 33%; }
+#s2:checked ~ .page-wrapper .progress-fill { width: 66%; }
+#s3:checked ~ .page-wrapper .progress-fill { width: 100%; }
+
+/* Panels */
+.panel {
+  display: none;
+  border: none;
+  padding: 0;
+}
+
+#s1:checked ~ .page-wrapper #p1,
+#s2:checked ~ .page-wrapper #p2,
+#s3:checked ~ .page-wrapper #p3 {
+  display: block;
+}
+
+.panel-legend {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Standard Form Fields */
+.field {
+  margin-bottom: 20px;
+}
+
+.field label:not(.checkbox-label) {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.field input:not([type="checkbox"]),
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: #fafaf9;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent);
+}
+
+/* Simple Checkbox */
+.field--checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.checkbox-label {
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.checkbox-label a {
+  color: var(--accent);
+}
+
+/* Review Box */
+.review-box {
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.review-hint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.review-list {
+  list-style: none;
+}
+
+.review-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid #c7d2fe;
+}
+
+.review-list li:last-child {
+  border-bottom: none;
+}
+
+.review-key { color: var(--muted); }
+.review-val { font-weight: 500; }
+
+/* Buttons */
+.panel-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  margin-left: auto;
+}
+
+.btn-primary:hover {
+  background: #3730a3;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1.5px solid var(--border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

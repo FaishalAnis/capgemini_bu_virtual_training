@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure CSS Responsive Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">Dev<span>Journal</span></a>
+      <ul class="nav-links">
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#" class="btn-subscribe">Subscribe</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+    
+    <main class="main-content">
+      
+      <article class="hero-post">
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Laptop on desk">
+        </div>
+        <div class="hero-content">
+          <span class="category-badge">Web Development</span>
+          <h1 class="post-title"><a href="#">Mastering CSS Grid: A Comprehensive Guide for Modern Layouts</a></h1>
+          <p class="post-excerpt">Dive deep into the mechanics of CSS Grid. Learn how to build complex, responsive web designs without relying on heavy frameworks or hacky float solutions.</p>
+          <div class="post-meta">
+            <img src="https://i.pravatar.cc/150?img=68" alt="Author Avatar" class="avatar">
+            <div class="meta-info">
+              <span class="author">By Sarah Drasner</span>
+              <span class="date">Oct 24, 2024 • 8 min read</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="section-divider">
+        <h2>Latest Articles</h2>
+      </div>
+
+      <section class="post-grid">
+        
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Code on screen">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">JavaScript</span>
+            <h3><a href="#">Understanding ES6 Modules</a></h3>
+            <p>Organize your code better with modern JavaScript module syntax.</p>
+            <div class="post-meta small">
+              <span class="date">Oct 20, 2024</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Data visualization">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">Data Science</span>
+            <h3><a href="#">The Rise of Python in Data</a></h3>
+            <p>Why Python has become the undisputed king of data analysis.</p>
+            <div class="post-meta small">
+              <span class="date">Oct 18, 2024</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=600&q=80" alt="Mobile app design">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">UI/UX</span>
+            <h3><a href="#">Designing for Dark Mode</a></h3>
+            <p>Essential tips for creating readable and beautiful dark themes.</p>
+            <div class="post-meta small">
+              <span class="date">Oct 15, 2024</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1618477388954-7852f32655ec?auto=format&fit=crop&w=600&q=80" alt="React Logo">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">React</span>
+            <h3><a href="#">React Server Components</a></h3>
+            <p>A look at the future of React and how server rendering is evolving.</p>
+            <div class="post-meta small">
+              <span class="date">Oct 12, 2024</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Desk setup">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">Productivity</span>
+            <h3><a href="#">Optimizing Your Workspace</a></h3>
+            <p>How a clean desk setup can drastically improve your coding focus.</p>
+            <div class="post-meta small">
+              <span class="date">Oct 10, 2024</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&w=600&q=80" alt="Server room">
+          </div>
+          <div class="card-content">
+            <span class="category-badge">DevOps</span>
+            <h3><a href="#">Getting Started with Docker</a></h3>
+            <p>Containerize your applications easily with this beginner's guide.</p>
+            <div class="post-meta small">
+              <span class="date">Oct 05, 2024</span>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <aside class="sidebar">
+      
+      <div class="widget">
+        <h3 class="widget-title">Categories</h3>
+        <ul class="category-list">
+          <li><a href="#">Web Development <span>(42)</span></a></li>
+          <li><a href="#">UI/UX Design <span>(18)</span></a></li>
+          <li><a href="#">Data Science <span>(25)</span></a></li>
+          <li><a href="#">Productivity <span>(10)</span></a></li>
+          <li><a href="#">DevOps <span>(14)</span></a></li>
+        </ul>
+      </div>
+
+      <div class="widget">
+        <h3 class="widget-title">Popular Tags</h3>
+        <div class="tag-cloud">
+          <a href="#" class="tag">#CSS</a>
+          <a href="#" class="tag">#JavaScript</a>
+          <a href="#" class="tag">#React</a>
+          <a href="#" class="tag">#Python</a>
+          <a href="#" class="tag">#Design</a>
+          <a href="#" class="tag">#Docker</a>
+          <a href="#" class="tag">#HTML</a>
+          <a href="#" class="tag">#Git</a>
+        </div>
+      </div>
+
+      <div class="widget newsletter-widget">
+        <h3 class="widget-title">Never Miss a Post</h3>
+        <p>Get the latest articles delivered straight to your inbox.</p>
+        <form action="#" class="newsletter-form">
+          <input type="email" placeholder="Email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+    </aside>
+
+  </div>
+
+</body>
+</html>

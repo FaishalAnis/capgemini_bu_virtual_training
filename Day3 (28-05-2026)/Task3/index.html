@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure CSS Pricing Toggle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="pricing-container">
+    
+    <div class="pricing-header">
+      <h2>Choose Your Plan</h2>
+      <p>Scale your business with our flexible pricing options.</p>
+    </div>
+
+    <input type="checkbox" id="billing-toggle" class="billing-toggle" hidden>
+
+    <div class="toggle-wrapper">
+      <span class="toggle-label monthly-label">Monthly</span>
+      <label for="billing-toggle" class="toggle-switch"></label>
+      <span class="toggle-label yearly-label">Yearly <span class="badge-save">Save 20%</span></span>
+    </div>
+
+    <div class="pricing-cards">
+      
+      <div class="card">
+        <h3 class="card-title">Basic</h3>
+        <p class="card-desc">Perfect for individuals and small side projects.</p>
+        <div class="price-wrapper">
+          <h4 class="price monthly-price">$15<span>/mo</span></h4>
+          <h4 class="price yearly-price">$144<span>/yr</span></h4>
+        </div>
+        <ul class="features">
+          <li>1 User Account</li>
+          <li>10GB Cloud Storage</li>
+          <li>Basic Email Support</li>
+          <li class="disabled">Custom Domain</li>
+          <li class="disabled">Advanced Analytics</li>
+        </ul>
+        <button class="cta-btn outline">Choose Basic</button>
+      </div>
+
+      <div class="card popular">
+        <div class="popular-badge">Most Popular</div>
+        <h3 class="card-title">Pro</h3>
+        <p class="card-desc">Ideal for growing teams and serious professionals.</p>
+        <div class="price-wrapper">
+          <h4 class="price monthly-price">$29<span>/mo</span></h4>
+          <h4 class="price yearly-price">$278<span>/yr</span></h4>
+        </div>
+        <ul class="features">
+          <li>5 User Accounts</li>
+          <li>50GB Cloud Storage</li>
+          <li>Priority 24/7 Support</li>
+          <li>Custom Domain</li>
+          <li class="disabled">Advanced Analytics</li>
+        </ul>
+        <button class="cta-btn solid">Choose Pro</button>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title">Enterprise</h3>
+        <p class="card-desc">Built for large-scale operations and high volume.</p>
+        <div class="price-wrapper">
+          <h4 class="price monthly-price">$99<span>/mo</span></h4>
+          <h4 class="price yearly-price">$950<span>/yr</span></h4>
+        </div>
+        <ul class="features">
+          <li>Unlimited Users</li>
+          <li>1TB Cloud Storage</li>
+          <li>Dedicated Account Manager</li>
+          <li>Custom Domain</li>
+          <li>Advanced Analytics</li>
+        </ul>
+        <button class="cta-btn outline">Contact Sales</button>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
