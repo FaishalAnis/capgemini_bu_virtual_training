@@ -1,2 +1,2 @@
-# capgemini_bu_virtual_training
+# CAPGEMINI BUSINESS UNIT VIRTUAL TRAINING REACT + JAVA
 Day-wise training materials and practice files.
