@@ -1,0 +1,52 @@
+* { box-sizing: border-box; font-family: sans-serif; }
+body { margin: 0; background: #f4f4f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+
+.btn { display: inline-block; padding: 10px 20px; background: #2563eb; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; }
+.btn-block { display: block; text-align: center; margin-top: 20px; }
+
+/* Modal Setup */
+.modal-overlay {
+  position: fixed;
+  inset: 0; /* top, right, bottom, left: 0 */
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  transform: translateY(-50px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  text-decoration: none;
+  color: #6b7280;
+}
+
+/* THE MAGIC: Show modal when URL matches the ID */
+#demo-modal:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+#demo-modal:target .modal-content {
+  transform: translateY(0);
+}

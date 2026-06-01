@@ -1,0 +1,48 @@
+* { box-sizing: border-box; margin: 0; font-family: sans-serif; }
+body { padding: 40px; background: #111; }
+
+.gallery-container { max-width: 1200px; margin: 0 auto; }
+
+/* The Masonry Logic */
+.masonry {
+  column-count: 3;
+  column-gap: 20px;
+}
+
+@media (max-width: 900px) { .masonry { column-count: 2; } }
+@media (max-width: 500px) { .masonry { column-count: 1; } }
+
+.item {
+  position: relative;
+  break-inside: avoid; /* Stops images from cutting across columns */
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.item img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Hover Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay h3 { color: white; margin-bottom: 10px; }
+.overlay a { display: inline-block; padding: 6px 15px; background: white; color: #111; text-decoration: none; border-radius: 20px; align-self: flex-start; font-size: 14px; font-weight: bold; }
+
+.item:hover img { transform: scale(1.05); }
+.item:hover .overlay { opacity: 1; }
