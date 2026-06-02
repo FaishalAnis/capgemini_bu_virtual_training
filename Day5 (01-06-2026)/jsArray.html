@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Array Concepts</title>
+</head>
+<body>
+
+<script>
+  // ── 1. FLAT ARRAY ──────────────────────────────────────────
+  const nested = [1, 2, [3, 4, [5, 6]], [7, [8, [9]]]];
+
+  console.log("=== 1. FLAT ARRAY ===");
+  console.log("Original  :", nested);
+  console.log("flat(1)   :", nested.flat());
+  console.log("flat()   :", nested.flat(Infinity));
+
+
+  // ── 2. REVERSE STRING ARRAY (College Names) ────────────────
+  const colleges = ["UEM","KOLKATA"];
+
+  console.log("\n=== 2. REVERSE STRING ARRAY ===");
+  console.log("Original :", colleges);
+  console.log("Reversed :", [...colleges].reverse());
+
+
+  // ── 3. TWO POINTER APPROACH ────────────────────────────────
+  const arr = [1, 2, 3, 2, 1];
+
+  console.log("\n=== 3. TWO POINTER APPROACH ===");
+  console.log("Array    :", arr);
+
+  let left=0;
+let right=arr.length-1;
+while(left<=right){
+    console.log(arr[left]);
+    left++;
+}
+
+  console.log("Result   :", isPalindrome ? "Palindrome" : " Not a Palindrome");
+</script>
+
+</body>
+</html>

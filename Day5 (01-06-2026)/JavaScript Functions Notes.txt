@@ -1,0 +1,184 @@
+JavaScript Functions Notes
+
+JavaScript Functions — Introduction
+
+1. What is a Function?: A reusable block of code designed to perform a particular task. Executes when called/invoked.
+javascriptfunction greet() {
+    console.log("Hello, World!");
+}
+greet();
+Output:
+Hello, World!
+
+Calling Functions
+
+2. Basic Function Call: A function is executed by calling its name followed by ().
+javascriptfunction sayHi() {
+    console.log("Hi there!");
+}
+sayHi();
+sayHi();
+Output:
+Hi there!
+Hi there!
+
+3. Calling with Arguments: Pass values directly when calling the function.
+javascriptfunction greet(name) {
+    console.log("Hello, " + name);
+}
+greet("Alice");
+greet("Bob");
+Output:
+Hello, Alice
+Hello, Bob
+
+Function Parameters
+
+4. Single Parameter: A parameter is a variable listed in the function definition.
+javascriptfunction square(x) {
+    console.log(x * x);
+}
+square(5);
+Output:
+25
+
+5. Multiple Parameters: Separate parameters with commas.
+javascriptfunction introduce(name, age) {
+    console.log("I am " + name + ", age " + age);
+}
+introduce("Alice", 25);
+Output:
+I am Alice, age 25
+
+6. Default Parameters: Assigns a default value if no argument is passed.
+javascriptfunction welcome(name = "Guest") {
+    console.log("Welcome, " + name);
+}
+welcome();
+welcome("Sara");
+Output:
+Welcome, Guest
+Welcome, Sara
+
+Function Return Values
+
+7. return Statement: Sends a value back to the caller and stops the function.
+javascriptfunction add(a, b) {
+    return a + b;
+}
+let result = add(10, 5);
+console.log(result);
+Output:
+15
+
+8. Using Return Value Directly: The returned value can be used in expressions.
+javascriptfunction multiply(a, b) {
+    return a * b;
+}
+console.log(multiply(4, 5) + 10);
+Output:
+30
+
+9. No Return (undefined): A function without return gives back undefined.
+javascriptfunction noReturn() {
+    console.log("Running...");
+}
+let result = noReturn();
+console.log(result);
+Output:
+Running...
+undefined
+
+Function Arguments
+
+10. Parameters vs Arguments: Parameters are in the definition. Arguments are the actual values passed.
+javascriptfunction greet(name) {     // name = parameter
+    console.log("Hi " + name);
+}
+greet("John");             // "John" = argument
+Output:
+Hi John
+
+11. arguments Object: A built-in object available inside every regular function holding all passed values.
+javascriptfunction sumAll() {
+    let total = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        total += arguments[i];
+    }
+    return total;
+}
+console.log(sumAll(1, 2, 3));
+console.log(sumAll(10, 20, 30, 40));
+Output:
+6
+100
+
+12. Rest Parameter (...): Modern ES6 alternative to arguments. Collects all values into a real array.
+javascriptfunction sumRest(...nums) {
+    return nums.reduce((a, b) => a + b, 0);
+}
+console.log(sumRest(5, 10, 15));
+Output:
+30
+
+Function Expressions
+
+13. Function Expression: A function stored in a variable. Not hoisted — must be defined before use.
+javascriptconst square = function(x) {
+    return x * x;
+};
+console.log(square(4));
+Output:
+16
+
+14. Named Function Expression: A function expression with an internal name (useful for recursion/debugging).
+javascriptconst factorial = function fact(n) {
+    if (n <= 1) return 1;
+    return n * fact(n - 1);
+};
+console.log(factorial(5));
+Output:
+120
+
+15. Function Expression as Callback: Passing a function expression directly into another function.
+javascriptconst double = function(n) { return n * 2; };
+console.log([1, 2, 3].map(double));
+Output:
+[ 2, 4, 6 ]
+
+Arrow Functions
+
+16. Basic Arrow Function: Short syntax using =>. Skips the function keyword.
+javascriptconst greet = () => {
+    console.log("Hello!");
+};
+greet();
+Output:
+Hello!
+
+17. Arrow Function with Parameters: Parameters go inside the parentheses before =>.
+javascriptconst add = (a, b) => {
+    return a + b;
+};
+console.log(add(3, 7));
+Output:
+10
+
+18. Implicit Return (skip return + {}): For single-expression bodies, skip {} and return.
+javascriptconst multiply = (a, b) => a * b;
+console.log(multiply(4, 5));
+Output:
+20
+
+19. Single Parameter (skip parentheses): With one parameter, parentheses are optional.
+javascriptconst double = n => n * 2;
+console.log(double(7));
+Output:
+14
+
+20. Arrow Function in Array Methods: Commonly used as inline callbacks.
+javascriptconst numbers = [1, 2, 3, 4, 5];
+const evens = numbers.filter(n => n % 2 === 0);
+console.log(evens);
+Output:
+[ 2, 4 ]
